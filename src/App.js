@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import { withRouter } from "react-router";
 
-function App() {
+import ProtectedRoute from "./components/ProtectedRoute";
+import NotProtectedUserPage from "./components/NotProtectedUserPage";
+import ProtectedUserPage from "./components/ProtectedUserPage";
+import NotAuthorized from "./components/NotAuthorized";
+import './App.css';
+import NavBar from "./components/NavBar";
+
+function App({ history }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <Switch>
+          <ProtectedRoute path='/protected' component={ProtectedUserPage} />
+          <Route path="/unauthorized">
+            <NotAuthorized />
+          </Route>
+          <Route path="/">
+            <NotProtectedUserPage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
