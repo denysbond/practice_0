@@ -1,23 +1,29 @@
-import { connect } from "react-redux";
+   import { connect } from "react-redux";
+   
+   import Todo from './Todo/Todo';
 
-import { getUser } from "../redux/selectors";
 
-function NotProtectedUserPage({ user }) {
-  console.log("user", user);
-  return <div>
+function NotProtectedUserPage({ todos }) {
+
+  
+  return (
     <div>
-      <span>Name:</span>
-      <span>{user.name}</span>
-    </div>
-    <div>
-      <span>Surname:</span>
-      <span>{user.surname}</span>
-    </div>
-  </div>
+      {todos.map((todo) =>{
+        return (
+          <Todo
+          todo = { todo }
+          key = { todo.id }
+          />
+        )
+      })}
+    </div>)
 }
+;
 
-const mapStateToProps = (state) => ({
-  user: getUser(state),
-});
+  const mapStateToProps = (state) => {
+    return{
+      todos: state.todos
+    }
+  }
 
-export default connect(mapStateToProps, null)(NotProtectedUserPage);
+export default connect(mapStateToProps)(NotProtectedUserPage);

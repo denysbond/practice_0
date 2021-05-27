@@ -1,0 +1,27 @@
+.buttons {
+  position: absolute;
+  right:5px;
+}
+ 
+button {
+  border: none;
+  background: none;
+  color: antiquewhite;
+  font-size: 25px ;
+ }
+ 
+ nav {
+   height: 60px;
+ }
+
+ nav span {
+   text-decoration: none;
+   color:antiquewhite;
+   font-size: 20px;
+   margin-right: 30px;
+   padding-left: 30px;
+ }
+
+ button:hover {
+   color: rgb(151, 112, 61);
+ }

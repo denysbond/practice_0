@@ -1,0 +1,11 @@
+input{
+  width: 500px;
+  text-align: center;
+  margin-top: 50px;
+  border-color:beige;
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+}

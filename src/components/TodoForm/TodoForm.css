@@ -1,0 +1,15 @@
+.form-container{
+  display:flex;
+  justify-content: center;
+  height: 40px;
+}
+
+input{
+  height: 40px;
+  border-top: none;
+}
+
+.form-container{
+  padding-bottom: 30px;
+}
+

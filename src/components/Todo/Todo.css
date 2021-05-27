@@ -1,0 +1,18 @@
+.item-todo{
+  width: 400px;
+  display:flex;
+  width: 700px;
+  justify-content: space-between;
+  border-bottom: 1px solid blue;
+}
+
+.todo-container{
+  display:flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+i{
+  color: red;
+  font-size: 20px;
+}
