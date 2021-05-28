@@ -1,15 +1,11 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import NotProtectedUserPage from "./components/NotProtectedUserPage";
+import NotProtectedUserPage from "./components/NotProtectedUserPage/NotProtectedUserPage";
 import ProtectedUserPage from "./components/ProtectedPage/ProtectedUserPage";
 import NotAuthorized from "./components/NoAuthorized/NotAuthorized";
-import './App.css';
+import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 
 function App({ history }) {
@@ -18,7 +14,7 @@ function App({ history }) {
       <div className="App">
         <NavBar />
         <Switch>
-          <ProtectedRoute  path='/protected' component={ProtectedUserPage} />
+          <ProtectedRoute path="/protected" component={ProtectedUserPage} />
           <Route path="/unauthorized">
             <NotAuthorized />
           </Route>

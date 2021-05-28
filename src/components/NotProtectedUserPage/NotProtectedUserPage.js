@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 
-import Todo from "./Todo/Todo";
+import Todo from "../Todo/Todo";
 
 function NotProtectedUserPage({ todos }) {
   return (
     <div>
       {todos.map((todo) => {
-        return <Todo logOut notAuthPage todo={todo} key={todo.id} />;
+        return <Todo notAuthPage todo={todo} key={todo.id} />;
       })}
     </div>
   );
