@@ -5,11 +5,10 @@ const initialState = {
     name: "",
     surname: "",
   },
-  todos: []
+  todos: [],
 };
 
-
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case SET_USER: {
       const { name, surname } = action.payload;
@@ -18,25 +17,25 @@ export default function(state = initialState, action) {
         user: {
           name,
           surname,
-        }
-      }
+        },
+      };
     }
     case ADD_TODO: {
       const { todo } = action.payload;
       return {
         ...state,
-        todos: [...state.todos, { task: todo, id: Date.now() }]
-      }
+        todos: [...state.todos, { task: todo, id: Date.now() }],
+      };
     }
 
     case DELETE_TODO: {
-      const { id }  = action.payload;
+      const { id } = action.payload;
       return {
         ...state,
-        todos: [...state.todos.filter((todo) => todo.id !== id)]
-      }
+        todos: [...state.todos.filter((todo) => todo.id !== id)],
+      };
     }
-    
+
     default: {
       return state;
     }

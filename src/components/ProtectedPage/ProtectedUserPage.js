@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
 
-import TodoForm from '../TodoForm/TodoForm';
-import Todo from '../Todo/Todo';
-import { addTodo, deleteTodo } from '../../redux/actions';
+import TodoForm from "../TodoForm/TodoForm";
+import Todo from "../Todo/Todo";
+import { addTodo, deleteTodo } from "../../redux/actions";
 
-import './ProtectedPage.css';
-
+import "./ProtectedPage.css";
 
 function ProtectedUserPage({ todos, addTodo, deleteTodo }) {
   console.log(todos);
@@ -13,26 +12,21 @@ function ProtectedUserPage({ todos, addTodo, deleteTodo }) {
   return (
     <div>
       <TodoForm addTask={addTodo} />
-      {todos.map((todo) => {
-        return (
-          <Todo
-            todo={todo}
-            key={todo.id}
-            removeTask={deleteTodo}
-            />
-        )
-      })}
+      <div className="todo">
+        {todos.map((todo) => {
+          return <Todo todo={todo} key={todo.id} removeTask={deleteTodo} />;
+        })}
+      </div>
     </div>
   );
-
 }
 
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, { addTodo, deleteTodo })(ProtectedUserPage);
-
-
+export default connect(mapStateToProps, { addTodo, deleteTodo })(
+  ProtectedUserPage
+);

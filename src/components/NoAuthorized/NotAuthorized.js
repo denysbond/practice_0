@@ -1,7 +1,9 @@
+import "./NotAuthorized.css";
+
 export default function NotAuthorized() {
   return (
     <div>
-      403
+      <h1>Please click LogIn</h1>
     </div>
-  )
+  );
 }

@@ -1,23 +1,26 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const isAuthorized = localStorage.getItem('isAuthorized') === "true";
+  const isAuthorized = localStorage.getItem("isAuthorized") === "true";
   return (
-    <Route {...rest} render={
-      props => {
+    <Route
+      {...rest}
+      render={(props) => {
         if (isAuthorized) {
-          return <Component {...rest} {...props} />
+          return <Component {...rest} {...props} />;
         } else {
-          return <Redirect to={
-            {
-              pathname: '/unauthorized',
-            }
-          } />
+          return (
+            <Redirect
+              to={{
+                pathname: "/unauthorized",
+              }}
+            />
+          );
         }
-      }
-    } />
-  )
-}
+      }}
+    />
+  );
+};
 
 export default ProtectedRoute;
